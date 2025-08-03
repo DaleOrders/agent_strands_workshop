@@ -51,7 +51,7 @@ source .venv/bin/activate
 Install dependencies for this workshop
 
 ```
-pip install openai fastapi uvicorn strands-agents strands-agents-tools "strands-agents[a2a]"
+pip install openai fastapi uvicorn strands-agents strands-agents-tools "strands-agents[a2a]" mcp
 ```
 
 ## Step 2: Create first strands Agent
@@ -565,3 +565,27 @@ curl -X POST http://127.0.0.1:8002/ask \
 ```
 
 
+To deploy:
+
+cd into Deploy
+
+```
+cd Deploy
+```
+
+Build and deploy SAM template
+
+```
+sam build && sam deploy --guided 
+```
+
+Select us-east-1
+
+Test by running
+
+```
+curl -X POST "<API>" \
+  -H "Content-Type: application/json" \
+  -d '{"prompt": "Plan a relaxing beach vacation in Australia for a family of four"}'
+
+```

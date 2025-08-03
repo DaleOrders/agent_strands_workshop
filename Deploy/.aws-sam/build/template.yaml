@@ -1,0 +1,37 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: FastAPI + Strands + Bedrock workflow on Lambda
+Globals:
+  Function:
+    Timeout: 30
+    MemorySize: 1024
+    Runtime: python3.11
+    Architectures:
+    - arm64
+Resources:
+  DeploymentFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: deployment-function
+      Handler: main.handler
+      CodeUri: DeploymentFunction
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: /ask
+            Method: post
+      Policies:
+      - Statement:
+        - Effect: Allow
+          Action:
+          - bedrock:InvokeModel
+          - bedrock:InvokeModelWithResponseStream
+          Resource: '*'
+    Metadata:
+      SamResourceId: DeploymentFunction
+Outputs:
+  ApiUrl:
+    Description: Invoke URL
+    Value:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/ask
