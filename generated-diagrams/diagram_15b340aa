@@ -1,0 +1,10 @@
+digraph "Static Website with AWS Lambda" {
+	graph [fontcolor="#2D3436" fontname="Sans-Serif" fontsize=15 label="Static Website with AWS Lambda" nodesep=0.60 pad=2.0 rankdir=LR ranksep=0.75 splines=ortho]
+	node [fixedsize=true fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13 height=1.4 imagescale=true labelloc=b shape=box style=rounded width=1.4]
+	edge [color="#7B8894"]
+	c513145d9f8a4def94c808e81ebea068 [label="Website Users" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/3irSpv8Z4jj0JF8TKanXg/lib/python3.13/site-packages/resources/aws/compute/lambda.png" shape=none]
+	b04829b044084fc3b78c457bff9bf90b [label="Static Website Bucket" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/3irSpv8Z4jj0JF8TKanXg/lib/python3.13/site-packages/resources/aws/storage/simple-storage-service-s3.png" shape=none]
+	d89d0c093936479e9599960ac9387dd0 [label="Lambda Function" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/3irSpv8Z4jj0JF8TKanXg/lib/python3.13/site-packages/resources/aws/compute/lambda.png" shape=none]
+	c513145d9f8a4def94c808e81ebea068 -> b04829b044084fc3b78c457bff9bf90b [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	b04829b044084fc3b78c457bff9bf90b -> d89d0c093936479e9599960ac9387dd0 [label=Trigger dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+}

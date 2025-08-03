@@ -1,0 +1,12 @@
+digraph "Serverless Static Website with Lambda" {
+	graph [fontcolor="#2D3436" fontname="Sans-Serif" fontsize=15 label="Serverless Static Website with Lambda" nodesep=0.60 pad=2.0 rankdir=TB ranksep=0.75 splines=ortho]
+	node [fixedsize=true fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13 height=1.4 imagescale=true labelloc=b shape=box style=rounded width=1.4]
+	edge [color="#7B8894"]
+	"248e1297affc4defb75c4cafd8fba62f" [label=User height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/qpm0X_3p2lLSAfmnUSTOC/lib/python3.13/site-packages/resources/aws/network/cloudfront.png" shape=none]
+	a58dbe260f61447e8efe71f7d9625da3 [label="Static Website Files" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/qpm0X_3p2lLSAfmnUSTOC/lib/python3.13/site-packages/resources/aws/storage/simple-storage-service-s3.png" shape=none]
+	a3084c54282d49698a330913f05f2162 [label="Dynamic Lambda Functions" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/qpm0X_3p2lLSAfmnUSTOC/lib/python3.13/site-packages/resources/aws/compute/lambda.png" shape=none]
+	"1f154e118cd746e89b0d439c5955ab84" [label="Email Service" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/qpm0X_3p2lLSAfmnUSTOC/lib/python3.13/site-packages/resources/aws/engagement/simple-email-service-ses.png" shape=none]
+	"248e1297affc4defb75c4cafd8fba62f" -> a58dbe260f61447e8efe71f7d9625da3 [label=Request dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"248e1297affc4defb75c4cafd8fba62f" -> a3084c54282d49698a330913f05f2162 [label="API Calls" dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	a3084c54282d49698a330913f05f2162 -> "1f154e118cd746e89b0d439c5955ab84" [label="Send Notifications" dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+}

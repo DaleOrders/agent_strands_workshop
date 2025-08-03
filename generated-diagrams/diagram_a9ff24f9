@@ -1,0 +1,15 @@
+digraph "Static Website with S3 and Lambda" {
+	graph [fontcolor="#2D3436" fontname="Sans-Serif" fontsize=15 label="Static Website with S3 and Lambda" nodesep=0.60 pad=2.0 rankdir=LR ranksep=0.75 splines=ortho]
+	node [fixedsize=true fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13 height=1.4 imagescale=true labelloc=b shape=box style=rounded width=1.4]
+	edge [color="#7B8894"]
+	"6947338a707344fb95f80bf5a8cd9710" [label="Website Visitor" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/tWCQkCQ2otxcY6CRXDNbw/lib/python3.13/site-packages/resources/onprem/client/user.png" shape=none]
+	"46aabe216fc34a5e907ec7a13fcc2ecc" [label="CloudFront CDN" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/tWCQkCQ2otxcY6CRXDNbw/lib/python3.13/site-packages/resources/aws/network/cloudfront.png" shape=none]
+	"735d8fe473724eb0a0b2384ab5bdbd4b" [label="Web Application Firewall" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/tWCQkCQ2otxcY6CRXDNbw/lib/python3.13/site-packages/resources/aws/security/waf.png" shape=none]
+	"6f1739153c0c4306949d881fd7ad8667" [label="Static Website S3 Bucket" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/tWCQkCQ2otxcY6CRXDNbw/lib/python3.13/site-packages/resources/aws/storage/simple-storage-service-s3.png" shape=none]
+	c96f5274252c4a03a98003affdde9c72 [label="Lambda@Edge Function" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/tWCQkCQ2otxcY6CRXDNbw/lib/python3.13/site-packages/resources/aws/compute/lambda.png" shape=none]
+	"6947338a707344fb95f80bf5a8cd9710" -> "46aabe216fc34a5e907ec7a13fcc2ecc" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"46aabe216fc34a5e907ec7a13fcc2ecc" -> "735d8fe473724eb0a0b2384ab5bdbd4b" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"735d8fe473724eb0a0b2384ab5bdbd4b" -> "6f1739153c0c4306949d881fd7ad8667" [label="Content Delivery" dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"46aabe216fc34a5e907ec7a13fcc2ecc" -> c96f5274252c4a03a98003affdde9c72 [label="Dynamic Processing" dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	c96f5274252c4a03a98003affdde9c72 -> "6f1739153c0c4306949d881fd7ad8667" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+}

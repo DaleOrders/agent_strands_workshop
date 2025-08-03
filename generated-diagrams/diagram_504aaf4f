@@ -1,0 +1,16 @@
+digraph "Serverless Static Website with Lambda" {
+	graph [fontcolor="#2D3436" fontname="Sans-Serif" fontsize=15 label="Serverless Static Website with Lambda" nodesep=0.60 pad=2.0 rankdir=LR ranksep=0.75 splines=ortho]
+	node [fixedsize=true fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13 height=1.4 imagescale=true labelloc=b shape=box style=rounded width=1.4]
+	edge [color="#7B8894"]
+	d9684813dbae4964b58f3739b88b9754 [label="CloudFront CDN" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/ILrNlDCb-jo9dsnSOPbG3/lib/python3.13/site-packages/resources/aws/network/cloudfront.png" shape=none]
+	"758905c80cd343fc89620fcdcc10b277" [label="Web Application Firewall" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/ILrNlDCb-jo9dsnSOPbG3/lib/python3.13/site-packages/resources/aws/security/waf.png" shape=none]
+	e0117036d0204622b7ee4b95e916cc16 [label="Static Website Bucket" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/ILrNlDCb-jo9dsnSOPbG3/lib/python3.13/site-packages/resources/aws/storage/simple-storage-service-s3.png" shape=none]
+	b5e5cf80943e455a96156f61784a1e95 [label="Dynamic Function" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/ILrNlDCb-jo9dsnSOPbG3/lib/python3.13/site-packages/resources/aws/compute/lambda.png" shape=none]
+	"65cac0de1c29430c90f093f80207d93e" [label="CloudWatch Logs" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/ILrNlDCb-jo9dsnSOPbG3/lib/python3.13/site-packages/resources/aws/management/cloudwatch.png" shape=none]
+	d9684813dbae4964b58f3739b88b9754 -> "758905c80cd343fc89620fcdcc10b277" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"758905c80cd343fc89620fcdcc10b277" -> e0117036d0204622b7ee4b95e916cc16 [label="Cached Content" dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	d9684813dbae4964b58f3739b88b9754 -> "758905c80cd343fc89620fcdcc10b277" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"758905c80cd343fc89620fcdcc10b277" -> b5e5cf80943e455a96156f61784a1e95 [label="Dynamic Requests" dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	b5e5cf80943e455a96156f61784a1e95 -> "65cac0de1c29430c90f093f80207d93e" [label="Log Events" dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	b5e5cf80943e455a96156f61784a1e95 -> e0117036d0204622b7ee4b95e916cc16 [label="Optional Data Processing" dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+}

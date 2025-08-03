@@ -1,0 +1,14 @@
+digraph "Static Website with AWS Lambda" {
+	graph [fontcolor="#2D3436" fontname="Sans-Serif" fontsize=15 label="Static Website with AWS Lambda" nodesep=0.60 pad=2.0 rankdir=LR ranksep=0.75 splines=ortho]
+	node [fixedsize=true fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13 height=1.4 imagescale=true labelloc=b shape=box style=rounded width=1.4]
+	edge [color="#7B8894"]
+	"4e4c922b93674f8792c82a705fa5d287" [label="Website Users" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/3irSpv8Z4jj0JF8TKanXg/lib/python3.13/site-packages/resources/aws/storage/simple-storage-service-s3.png" shape=none]
+	"7ae04a2cffdc4298a46976df3357dd2c" [label="CloudFront CDN" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/3irSpv8Z4jj0JF8TKanXg/lib/python3.13/site-packages/resources/aws/network/cloudfront.png" shape=none]
+	d147ab3e01e247568c3b44bae6b85085 [label="Web Application Firewall" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/3irSpv8Z4jj0JF8TKanXg/lib/python3.13/site-packages/resources/aws/security/waf.png" shape=none]
+	"9035da26c93748e682baca9b6990599e" [label="Static Website Bucket" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/3irSpv8Z4jj0JF8TKanXg/lib/python3.13/site-packages/resources/aws/storage/simple-storage-service-s3.png" shape=none]
+	"3b64bf4c19794f9499466cc623e18f54" [label="Lambda Function" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/3irSpv8Z4jj0JF8TKanXg/lib/python3.13/site-packages/resources/aws/compute/lambda.png" shape=none]
+	"4e4c922b93674f8792c82a705fa5d287" -> "7ae04a2cffdc4298a46976df3357dd2c" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"7ae04a2cffdc4298a46976df3357dd2c" -> d147ab3e01e247568c3b44bae6b85085 [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	d147ab3e01e247568c3b44bae6b85085 -> "9035da26c93748e682baca9b6990599e" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"9035da26c93748e682baca9b6990599e" -> "3b64bf4c19794f9499466cc623e18f54" [label=Trigger dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+}

@@ -1,0 +1,10 @@
+digraph "Serverless Static Website" {
+	graph [fontcolor="#2D3436" fontname="Sans-Serif" fontsize=15 label="Serverless Static Website" nodesep=0.60 pad=2.0 rankdir=LR ranksep=0.75 splines=ortho]
+	node [fixedsize=true fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13 height=1.4 imagescale=true labelloc=b shape=box style=rounded width=1.4]
+	edge [color="#7B8894"]
+	b638713f8c7d47dc9275af3ce12412f0 [label="CloudFront CDN" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/E-JK1KIfvz1f8SUkYVQwZ/lib/python3.13/site-packages/resources/aws/network/cloudfront.png" shape=none]
+	"717df1b08245468484279d113a2c2787" [label="S3 Static Website" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/E-JK1KIfvz1f8SUkYVQwZ/lib/python3.13/site-packages/resources/aws/storage/simple-storage-service-s3.png" shape=none]
+	"16a99bf8553a4fd29535695fb80fa788" [label="Lambda Function" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/E-JK1KIfvz1f8SUkYVQwZ/lib/python3.13/site-packages/resources/aws/compute/lambda.png" shape=none]
+	b638713f8c7d47dc9275af3ce12412f0 -> "717df1b08245468484279d113a2c2787" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	b638713f8c7d47dc9275af3ce12412f0 -> "16a99bf8553a4fd29535695fb80fa788" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+}
