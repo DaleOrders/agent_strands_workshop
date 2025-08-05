@@ -15,8 +15,11 @@ This workshop includes step by step instructions to accompany the workshop 'AI A
 
 0. [Prerequisites](#prerequisites)
 1. [Step 1: Initialize the Project](#step-1-initialize-the-project)
-2. [Step 2: Create first strands Agent](#step-2-create-first-strands-agnet)
-
+2. [Step 2: Create first strands Agent](#step-2-create-first-strands-agent)
+3. [Step 3: Create strands agent using word_count tool](#step-3-strands-agent-using-word-count)
+4. [Step 4: Create MCP strands agent integrated with AWS](#step-4-create-mcp-strands-agent-integrated-with-aws)
+5. [Step 5: Multi-agent Strands Design](#step-5-multi-agent-strands-design)
+6. [Step 6: Workflow Strands Design](#step-6-workflow-strands-design)
 
 
 ---
@@ -55,6 +58,8 @@ pip install openai fastapi uvicorn strands-agents strands-agents-tools "strands-
 ```
 
 ## Step 2: Create first strands Agent
+
+![alt text](image-2.png)
 
 Create a file called 'my_agent.py'
 
@@ -127,15 +132,15 @@ Test the code by running
 python3 my_agent.py
 ```
 
-## Step 3: Create MCP strands agent
+## Step 3: Create strands agent using word_count tool
 
-Create mcp_agent.py file
+Create word_count_agent.py file
 
 ```
-touch mcp_agent.py
+touch word_count_agent.py
 ```
 
-Paste the following code block into mcp_agent.py
+Paste the following code block into word_count_agent.py
 
 ```
 from fastapi import FastAPI
@@ -144,7 +149,7 @@ from strands import Agent, tool
 from strands.models import BedrockModel
 from strands_tools import http_request
 
-# 🧠 System prompt: guides agent behavior
+# System prompt: guides agent behavior
 COUNTRY_INFO_SYSTEM_PROMPT = """You are a geography assistant with HTTP capabilities. You can:
 
 1. Make HTTP requests to public APIs or Wikipedia to gather country information
@@ -163,19 +168,19 @@ When responding:
 - Handle errors gracefully if the country is not found or response is ambiguous
 """
 
-# 🛠 Custom tool: count words in final response
+# Custom tool: count words in final response
 @tool
 def word_count(text: str) -> int:
     """Count words in the given text."""
     return len(text.split())
 
-# 🤖 Model configuration: Bedrock Claude 3.5 Haiku
+# Model configuration: Bedrock Claude 3.5 Haiku
 bedrock_model = BedrockModel(
     model_id="us.anthropic.claude-3-5-haiku-20241022-v1:0",
     temperature=0.3,
 )
 
-# 🧠 AI Agent setup
+# AI Agent setup
 agent = Agent(
     name="GeoAgent",
     description="Finds country info and counts words using Wikipedia",
@@ -184,14 +189,14 @@ agent = Agent(
     system_prompt=COUNTRY_INFO_SYSTEM_PROMPT,
 )
 
-# 🌐 FastAPI app setup
-app = FastAPI(title="Strands GeoAgent MCP")
+# FastAPI app setup
+app = FastAPI(title="Strands GeoAgent")
 
-# 📦 Request schema
+# Request schema
 class PromptRequest(BaseModel):
     prompt: str
 
-# 🎯 POST endpoint to run the agent
+# POST endpoint to run the agent
 @app.post("/ask")
 async def ask_agent(request: PromptRequest):
     try:
@@ -205,7 +210,7 @@ async def ask_agent(request: PromptRequest):
 Run the server on port 8000
 
 ```
-uvicorn mcp_agent:app --reload --port 8000
+uvicorn word_count_agent:app --reload --port 8000
 
 ````
 
@@ -221,7 +226,7 @@ curl -X POST http://127.0.0.1:8000/ask \
 ````
 
 
-## Step 4: Create MCP strands agent using integrated with AWS 
+## Step 4: Create MCP strands agent integrated with AWS 
 
 Create a file called 'mcp_docs.py'
 
@@ -280,7 +285,11 @@ python3 mcp_docs.py
 
 ````
 
+![alt text](image-3.png)
+
 ## Step 5: Multi-agent Strands Design
+
+![alt text](image.png)
 
 Create a new file called 'multi-agent.py'
 
@@ -412,6 +421,9 @@ curl -X POST http://127.0.0.1:8001/ask \
   ````
 
 ## Step 6: Workflow Strands Design
+
+
+![alt text](image-1.png)
 
 Create a new file called 'workflow_agent.py'
 

@@ -29,13 +29,13 @@ def word_count(text: str) -> int:
     """Count words in the given text."""
     return len(text.split())
 
-# 🤖 Model configuration: Bedrock Claude 3.5 Haiku
+# Model configuration: Bedrock Claude 3.5 Haiku
 bedrock_model = BedrockModel(
     model_id="us.anthropic.claude-3-5-haiku-20241022-v1:0",
     temperature=0.3,
 )
 
-# 🧠 AI Agent setup
+# AI Agent setup
 agent = Agent(
     name="GeoAgent",
     description="Finds country info and counts words using Wikipedia",
@@ -44,14 +44,14 @@ agent = Agent(
     system_prompt=COUNTRY_INFO_SYSTEM_PROMPT,
 )
 
-# 🌐 FastAPI app setup
-app = FastAPI(title="Strands GeoAgent MCP")
+# FastAPI app setup
+app = FastAPI(title="Strands GeoAgent")
 
-# 📦 Request schema
+# Request schema
 class PromptRequest(BaseModel):
     prompt: str
 
-# 🎯 POST endpoint to run the agent
+# POST endpoint to run the agent
 @app.post("/ask")
 async def ask_agent(request: PromptRequest):
     try:
