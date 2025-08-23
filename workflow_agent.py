@@ -45,8 +45,7 @@ def word_count(text: str) -> int:
 # ------------------ Model ------------------
 
 bedrock_model = BedrockModel(
-    model_id="us.anthropic.claude-3-5-haiku-20241022-v1:0",
-    temperature=0.3,
+    model_id="us.anthropic.claude-3-5-haiku-20241022-v1:0"
 )
 
 # ------------------ Agents ------------------

@@ -287,9 +287,11 @@ python3 mcp_docs.py
 
 ![alt text](image-3.png)
 
-## Step 5: Multi-agent Strands Design
+## Step 5: Multi-agent Strands Design (sequence)
 
-![alt text](image.png)
+![alt text](image-5.png)
+
+
 
 Create a new file called 'multi-agent.py'
 
@@ -420,10 +422,10 @@ curl -X POST http://127.0.0.1:8001/ask \
 
   ````
 
-## Step 6: Workflow Strands Design
+## Step 6: Workflow Strands Design (Supervisor)
 
 
-![alt text](image-1.png)
+![alt text](image-4.png)
 
 Create a new file called 'workflow_agent.py'
 
@@ -596,8 +598,10 @@ Select us-east-1
 Test by running
 
 ```
-curl -X POST "<API>" \
+curl -s -X POST "<API>" \
   -H "Content-Type: application/json" \
-  -d '{"prompt": "Plan a relaxing beach vacation in Australia for a family of four"}'
+  -d '{"prompt": "Plan a relaxing beach vacation in Australia for a family of four"}' \
+  | jq -r '.response'
+
 
 ```
