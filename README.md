@@ -1,7 +1,7 @@
 # agent_strands_workshop
-Community Day Virtual 2025 Workshop
 
-This workshop includes step by step instructions to accompany the workshop 'AI Agents in Action: Build Cloud-Ready AI with AWS Strands' for Community Day Virtual NZD 2025
+
+This workshop includes step by step instructions to accompany the workshop 'AI Agents in Action: Build Cloud-Ready AI with AWS Strands' for AWS Melbourne User Group
 
 
 - Initializing a basic python structure
@@ -289,8 +289,7 @@ python3 mcp_docs.py
 
 ## Step 5: Multi-agent Strands Design (sequence)
 
-![alt text](image-5.png)
-
+![alt text](image-4.png)
 
 
 Create a new file called 'multi-agent.py'
@@ -425,7 +424,7 @@ curl -X POST http://127.0.0.1:8001/ask \
 ## Step 6: Workflow Strands Design (Supervisor)
 
 
-![alt text](image-4.png)
+![alt text](image-5.png)
 
 Create a new file called 'workflow_agent.py'
 
