@@ -332,9 +332,9 @@ When responding:
 # 💱 CurrencyAgent system prompt
 CURRENCY_CONVERT_SYSTEM_PROMPT = """You are a currency converter assistant.
 
-1. You convert New Zealand Dollars (NZD) into the currency of a given country.
+1. You convert Australian Dollars (AUD) into the currency of a given country.
 2. Use this exchange rate API endpoint format:
-   https://api.exchangerate.host/convert?from=NZD&to={currency_code}
+   https://api.exchangerate.host/convert?from=AUD&to={currency_code}
 3. Return only the conversion result in your reply.
 
 You must look up the correct 3-letter currency code for the country requested. If the country is ambiguous or not supported, say so clearly.
@@ -376,7 +376,7 @@ currency_agent = Agent(
 
 def orchestrator(prompt: str):
     prompt_lower = prompt.lower()
-    if "convert" in prompt_lower or "nzd" in prompt_lower or "currency" in prompt_lower:
+    if "convert" in prompt_lower or "aud" in prompt_lower or "currency" in prompt_lower:
         return currency_agent(prompt)
     else:
         return geo_agent(prompt)
@@ -396,7 +396,6 @@ async def ask_mcp(request: PromptRequest):
     except Exception as e:
         return {"error": str(e)}
 
-
 ```
 
 Run the server on port 8001
@@ -412,7 +411,7 @@ Test the agent by runnning in a new terminal
 
 curl -X POST http://127.0.0.1:8001/ask \
   -H "Content-Type: application/json" \
-  -d '{"prompt": "Convert 100 New Zealand dollars to Japanese Yen"}'
+  -d '{"prompt": "Convert 100 aud to Japanese Yen"}'
 
 curl -X POST http://127.0.0.1:8001/ask \
   -H "Content-Type: application/json" \
