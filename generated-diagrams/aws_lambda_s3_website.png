@@ -1,0 +1,12 @@
+digraph "Serverless Static Website with Lambda" {
+	graph [fontcolor="#2D3436" fontname="Sans-Serif" fontsize=15 label="Serverless Static Website with Lambda" nodesep=0.60 pad=2.0 rankdir=LR ranksep=0.75 splines=ortho]
+	node [fixedsize=true fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13 height=1.4 imagescale=true labelloc=b shape=box style=rounded width=1.4]
+	edge [color="#7B8894"]
+	ae406ae226284afe9e6fded077bca731 [label="Global CDN" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/niZ3ohLIaU1Ze5cWItwgI/lib/python3.13/site-packages/resources/aws/network/cloudfront.png" shape=none]
+	"9b76bb7c7c784d9ea62a239b80de265e" [label="Web Application Firewall" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/niZ3ohLIaU1Ze5cWItwgI/lib/python3.13/site-packages/resources/aws/security/waf.png" shape=none]
+	ea7f5e9787b443d6b15b435fb7ad184f [label="Static Website Bucket" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/niZ3ohLIaU1Ze5cWItwgI/lib/python3.13/site-packages/resources/aws/storage/simple-storage-service-s3.png" shape=none]
+	d6e6543108a84143aeecfb0447e5cd44 [label="Dynamic Functionality" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/niZ3ohLIaU1Ze5cWItwgI/lib/python3.13/site-packages/resources/aws/compute/lambda.png" shape=none]
+	ae406ae226284afe9e6fded077bca731 -> "9b76bb7c7c784d9ea62a239b80de265e" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"9b76bb7c7c784d9ea62a239b80de265e" -> ea7f5e9787b443d6b15b435fb7ad184f [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	d6e6543108a84143aeecfb0447e5cd44 -> ea7f5e9787b443d6b15b435fb7ad184f [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+}

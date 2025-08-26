@@ -1,0 +1,18 @@
+digraph "Serverless Static Website with Lambda" {
+	graph [fontcolor="#2D3436" fontname="Sans-Serif" fontsize=15 label="Serverless Static Website with Lambda" nodesep=0.60 pad=2.0 rankdir=LR ranksep=0.75 splines=ortho]
+	node [fixedsize=true fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13 height=1.4 imagescale=true labelloc=b shape=box style=rounded width=1.4]
+	edge [color="#7B8894"]
+	ecbed2cbc28a453981454c11a43b3ea4 [label="Global CDN" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/m-yNvK98FBQB3QciirmWy/lib/python3.13/site-packages/resources/aws/network/cloudfront.png" shape=none]
+	"527550a3508342668f306dc1d32eb36e" [label="Web Application Firewall" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/m-yNvK98FBQB3QciirmWy/lib/python3.13/site-packages/resources/aws/security/waf.png" shape=none]
+	"8db6e97b70664a26b919b277c240c6d8" [label="SSL/TLS Certificate" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/m-yNvK98FBQB3QciirmWy/lib/python3.13/site-packages/resources/aws/security/certificate-manager.png" shape=none]
+	"389f5c55ad7742deb740989eaffb99c3" [label="Static Website Bucket" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/m-yNvK98FBQB3QciirmWy/lib/python3.13/site-packages/resources/aws/storage/simple-storage-service-s3.png" shape=none]
+	"79444660ef2e4e459029843c57f5fe69" [label="Image Resizer" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/m-yNvK98FBQB3QciirmWy/lib/python3.13/site-packages/resources/aws/compute/lambda.png" shape=none]
+	"2a22c29a39d0452685316942c56af055" [label="Content Validator" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/m-yNvK98FBQB3QciirmWy/lib/python3.13/site-packages/resources/aws/compute/lambda.png" shape=none]
+	ecbed2cbc28a453981454c11a43b3ea4 -> "8db6e97b70664a26b919b277c240c6d8" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"8db6e97b70664a26b919b277c240c6d8" -> "527550a3508342668f306dc1d32eb36e" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"6c562f800d7f49dfac60fe7eaa393cd0" [label="Content Delivery" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/m-yNvK98FBQB3QciirmWy/lib/python3.13/site-packages/resources/aws/network/cloudfront.png" shape=none]
+	"527550a3508342668f306dc1d32eb36e" -> "6c562f800d7f49dfac60fe7eaa393cd0" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"6c562f800d7f49dfac60fe7eaa393cd0" -> "389f5c55ad7742deb740989eaffb99c3" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"389f5c55ad7742deb740989eaffb99c3" -> "79444660ef2e4e459029843c57f5fe69" [label="Upload Event" dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"389f5c55ad7742deb740989eaffb99c3" -> "2a22c29a39d0452685316942c56af055" [label="Validate Content" dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+}

@@ -1,0 +1,16 @@
+digraph "Static Website with Lambda and S3" {
+	graph [fontcolor="#2D3436" fontname="Sans-Serif" fontsize=15 label="Static Website with Lambda and S3" nodesep=0.60 pad=2.0 rankdir=LR ranksep=0.75 splines=ortho]
+	node [fixedsize=true fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13 height=1.4 imagescale=true labelloc=b shape=box style=rounded width=1.4]
+	edge [color="#7B8894"]
+	"4dd4d4ab274e4c8a8d217dde1abed6c9" [label="Global Users" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/9S2S8FsOTcG9VvQRzNXBh/lib/python3.13/site-packages/resources/aws/network/cloudfront.png" shape=none]
+	"7285fef607a5483a8935725cacc851de" [label="Web Application Firewall" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/9S2S8FsOTcG9VvQRzNXBh/lib/python3.13/site-packages/resources/aws/security/waf.png" shape=none]
+	df2c2cbfecc54910b37d671b5f2ec14d [label="API Gateway" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/9S2S8FsOTcG9VvQRzNXBh/lib/python3.13/site-packages/resources/aws/network/api-gateway.png" shape=none]
+	"72c47b54815d4f4abb262191e2a24790" [label="Lambda Function" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/9S2S8FsOTcG9VvQRzNXBh/lib/python3.13/site-packages/resources/aws/compute/lambda.png" shape=none]
+	"59787a50d7454dee8b7eff2ac0e9421a" [label="Static Website S3 Bucket" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/9S2S8FsOTcG9VvQRzNXBh/lib/python3.13/site-packages/resources/aws/storage/simple-storage-service-s3.png" shape=none]
+	"4dd4d4ab274e4c8a8d217dde1abed6c9" -> "7285fef607a5483a8935725cacc851de" [label="HTTPS Request" dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	d8f094aea6a147d581897eaf01b1bfd9 [label=CDN height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/9S2S8FsOTcG9VvQRzNXBh/lib/python3.13/site-packages/resources/aws/network/cloudfront.png" shape=none]
+	"7285fef607a5483a8935725cacc851de" -> d8f094aea6a147d581897eaf01b1bfd9 [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	d8f094aea6a147d581897eaf01b1bfd9 -> df2c2cbfecc54910b37d671b5f2ec14d [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	df2c2cbfecc54910b37d671b5f2ec14d -> "72c47b54815d4f4abb262191e2a24790" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"72c47b54815d4f4abb262191e2a24790" -> "59787a50d7454dee8b7eff2ac0e9421a" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+}

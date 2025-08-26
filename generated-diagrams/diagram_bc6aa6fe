@@ -1,0 +1,14 @@
+digraph "Static Website with Lambda and S3" {
+	graph [fontcolor="#2D3436" fontname="Sans-Serif" fontsize=15 label="Static Website with Lambda and S3" nodesep=0.60 pad=2.0 rankdir=LR ranksep=0.75 splines=ortho]
+	node [fixedsize=true fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13 height=1.4 imagescale=true labelloc=b shape=box style=rounded width=1.4]
+	edge [color="#7B8894"]
+	e23b76be01c943058462d6997f9493b3 [label="Global Users" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/9S2S8FsOTcG9VvQRzNXBh/lib/python3.13/site-packages/resources/aws/network/cloudfront.png" shape=none]
+	"60a3a8a87a3045d8834f1b6bbcd702d2" [label="Web Application Firewall" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/9S2S8FsOTcG9VvQRzNXBh/lib/python3.13/site-packages/resources/aws/security/waf.png" shape=none]
+	e93666c35a3442609b09384db499a030 [label="Lambda Function" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/9S2S8FsOTcG9VvQRzNXBh/lib/python3.13/site-packages/resources/aws/compute/lambda.png" shape=none]
+	cc66d7799cad47429b43687bea7018ed [label="Static Website S3 Bucket" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/9S2S8FsOTcG9VvQRzNXBh/lib/python3.13/site-packages/resources/aws/storage/simple-storage-service-s3.png" shape=none]
+	e23b76be01c943058462d6997f9493b3 -> "60a3a8a87a3045d8834f1b6bbcd702d2" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	a6cfe4715d8a4114bf3a8e40d6300bd8 [label=CDN height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/9S2S8FsOTcG9VvQRzNXBh/lib/python3.13/site-packages/resources/aws/network/cloudfront.png" shape=none]
+	"60a3a8a87a3045d8834f1b6bbcd702d2" -> a6cfe4715d8a4114bf3a8e40d6300bd8 [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	a6cfe4715d8a4114bf3a8e40d6300bd8 -> e93666c35a3442609b09384db499a030 [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	e93666c35a3442609b09384db499a030 -> cc66d7799cad47429b43687bea7018ed [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+}

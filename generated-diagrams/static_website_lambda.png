@@ -1,0 +1,15 @@
+digraph "Static Website with AWS Lambda" {
+	graph [fontcolor="#2D3436" fontname="Sans-Serif" fontsize=15 label="Static Website with AWS Lambda" nodesep=0.60 pad=2.0 rankdir=LR ranksep=0.75 splines=ortho]
+	node [fixedsize=true fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13 height=1.4 imagescale=true labelloc=b shape=box style=rounded width=1.4]
+	edge [color="#7B8894"]
+	"2e74642f1e9d481e9bf0c6979f9edf5e" [label="Website Visitor" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/lPcw0vspQ-d6g-Ht7MCi-/lib/python3.13/site-packages/resources/onprem/client/user.png" shape=none]
+	"02df05cc805e4c43961e30e393874065" [label="CloudFront CDN" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/lPcw0vspQ-d6g-Ht7MCi-/lib/python3.13/site-packages/resources/aws/network/cloudfront.png" shape=none]
+	"1a92b86f72624294a7840bade2524aaf" [label="Web Application Firewall" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/lPcw0vspQ-d6g-Ht7MCi-/lib/python3.13/site-packages/resources/aws/security/waf.png" shape=none]
+	"1ef665d059e44f1fa08a0da8bc13bcee" [label="Static Website Bucket" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/lPcw0vspQ-d6g-Ht7MCi-/lib/python3.13/site-packages/resources/aws/storage/simple-storage-service-s3.png" shape=none]
+	"7ca26f412ffc40a681e103977f036ca8" [label="Dynamic Functions" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/lPcw0vspQ-d6g-Ht7MCi-/lib/python3.13/site-packages/resources/aws/compute/lambda.png" shape=none]
+	"2e74642f1e9d481e9bf0c6979f9edf5e" -> "02df05cc805e4c43961e30e393874065" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"02df05cc805e4c43961e30e393874065" -> "1a92b86f72624294a7840bade2524aaf" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"1a92b86f72624294a7840bade2524aaf" -> "1ef665d059e44f1fa08a0da8bc13bcee" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"2e74642f1e9d481e9bf0c6979f9edf5e" -> "02df05cc805e4c43961e30e393874065" [label="API Requests" dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"02df05cc805e4c43961e30e393874065" -> "7ca26f412ffc40a681e103977f036ca8" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+}

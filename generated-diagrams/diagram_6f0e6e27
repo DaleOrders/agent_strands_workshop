@@ -1,0 +1,15 @@
+digraph "Serverless Static Website with Lambda" {
+	graph [fontcolor="#2D3436" fontname="Sans-Serif" fontsize=15 label="Serverless Static Website with Lambda" nodesep=0.60 pad=2.0 rankdir=LR ranksep=0.75 splines=ortho]
+	node [fixedsize=true fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13 height=1.4 imagescale=true labelloc=b shape=box style=rounded width=1.4]
+	edge [color="#7B8894"]
+	c573794d54184cc2814a6436f2635d98 [label="CloudFront CDN" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/UVwiE22x7ON9hHRKLnuAs/lib/python3.13/site-packages/resources/aws/network/cloudfront.png" shape=none]
+	"7a3ff625de28462192f062dcf8d62562" [label="Web Application Firewall" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/UVwiE22x7ON9hHRKLnuAs/lib/python3.13/site-packages/resources/aws/security/waf.png" shape=none]
+	fc46f5acef1346d0be9d56e3433bec69 [label="Static Website Bucket" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/UVwiE22x7ON9hHRKLnuAs/lib/python3.13/site-packages/resources/aws/storage/simple-storage-service-s3.png" shape=none]
+	"081f22b40b5a4e938c354d20d69ee11a" [label="API Gateway" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/UVwiE22x7ON9hHRKLnuAs/lib/python3.13/site-packages/resources/aws/network/api-gateway.png" shape=none]
+	"418d225d17f344e6a12da96c994e2a4c" [label="Dynamic Function" height=1.9 image="/Users/dalord1/.cache/uv/archive-v0/UVwiE22x7ON9hHRKLnuAs/lib/python3.13/site-packages/resources/aws/compute/lambda.png" shape=none]
+	c573794d54184cc2814a6436f2635d98 -> "7a3ff625de28462192f062dcf8d62562" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"7a3ff625de28462192f062dcf8d62562" -> fc46f5acef1346d0be9d56e3433bec69 [label="Serve Static Content" dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	c573794d54184cc2814a6436f2635d98 -> "7a3ff625de28462192f062dcf8d62562" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"7a3ff625de28462192f062dcf8d62562" -> "081f22b40b5a4e938c354d20d69ee11a" [label="API Requests" dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"081f22b40b5a4e938c354d20d69ee11a" -> "418d225d17f344e6a12da96c994e2a4c" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+}

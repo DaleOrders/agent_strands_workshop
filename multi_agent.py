@@ -28,9 +28,9 @@ When responding:
 # 💱 CurrencyAgent system prompt
 CURRENCY_CONVERT_SYSTEM_PROMPT = """You are a currency converter assistant.
 
-1. You convert New Zealand Dollars (NZD) into the currency of a given country.
+1. You convert Australian Dollars (AUD) into the currency of a given country.
 2. Use this exchange rate API endpoint format:
-   https://api.exchangerate.host/convert?from=NZD&to={currency_code}
+   https://api.exchangerate.host/convert?from=AUD&to={currency_code}
 3. Return only the conversion result in your reply.
 
 You must look up the correct 3-letter currency code for the country requested. If the country is ambiguous or not supported, say so clearly.
@@ -44,6 +44,8 @@ def word_count(text: str) -> int:
     return len(text.split())
 
 # ------------------ Model ------------------
+# both agents use the same Bedrock model for simplicity
+# can create a second model here if you want agents to use different models
 
 bedrock_model = BedrockModel(
     model_id="us.anthropic.claude-3-5-haiku-20241022-v1:0",
@@ -51,6 +53,9 @@ bedrock_model = BedrockModel(
 )
 
 # ------------------ Agents ------------------
+# both agents input the same model and each uses its own system prompt
+# both agents use the http_request tool, but only GeoAgent also uses the word_count tool
+
 
 geo_agent = Agent(
     name="GeoAgent",
@@ -62,22 +67,24 @@ geo_agent = Agent(
 
 currency_agent = Agent(
     name="CurrencyAgent",
-    description="Converts NZD to another country's currency",
+    description="Converts AUD to another country's currency",
     model=bedrock_model,
     tools=[http_request],
     system_prompt=CURRENCY_CONVERT_SYSTEM_PROMPT,
 )
 
 # ------------------ Orchestrator ------------------
+# routes prompts to the appropriate agent based on keywords
 
 def orchestrator(prompt: str):
     prompt_lower = prompt.lower()
-    if "convert" in prompt_lower or "nzd" in prompt_lower or "currency" in prompt_lower:
+    if "convert" in prompt_lower or "aud" in prompt_lower or "currency" in prompt_lower:
         return currency_agent(prompt)
     else:
         return geo_agent(prompt)
 
 # ------------------ FastAPI App ------------------
+# simple API to interact with the orchestrator
 
 app = FastAPI(title="Strands Orchestrator MCP")
 
